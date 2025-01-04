@@ -23,12 +23,22 @@ const data = {
   },
   navMain: [
     {
+      title: "Info",
+      url: "/dashboard",
+      icon: LifeBuoy,
+    },
+    {
       title: "Erfaring",
       url: "#",
       icon: LifeBuoy,
     },
     {
       title: "Uddannelse",
+      url: "#",
+      icon: Send,
+    },
+    {
+      title: "Kompetencer",
       url: "#",
       icon: Send,
     },
