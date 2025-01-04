@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Software Developer Resume",
+    "description": "My main resume for tech positions",
+    "imageUrl": "https://example.com/profile.jpg",
+    "hexColor": "#4A90E2",
+    "firstName": "Peter",
+    "lastName": "Jensen",
+    "jobTitle": "Senior Frontend Developer",
+    "city": "København",
+    "country": "Danmark",
+    "phoneNumber": "+45 12 34 56 78",
+    "email": "peter.jensen@email.dk",
+    "userId": "user123"
+  },
+  {
+    "title": "UX Designer CV",
+    "description": "Design-focused resume",
+    "imageUrl": "https://example.com/profile2.jpg",
+    "hexColor": "#27AE60",
+    "firstName": "Marie",
+    "lastName": "Nielsen",
+    "jobTitle": "UX/UI Designer",
+    "city": "Aarhus",
+    "country": "Danmark",
+    "phoneNumber": "+45 87 65 43 21",
+    "email": "marie.nielsen@email.dk",
+    "userId": "user456"
+  }
+]

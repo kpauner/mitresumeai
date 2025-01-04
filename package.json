@@ -33,6 +33,7 @@
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.3",
+    "drizzle-zod": "^0.6.1",
     "lucide-react": "^0.469.0",
     "nanoid": "^5.0.9",
     "next": "15.1.2",

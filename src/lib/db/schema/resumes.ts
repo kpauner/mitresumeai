@@ -1,7 +1,7 @@
-import { sqliteTable, text, int } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { nanoid } from "nanoid";
 import { experiences, users } from ".";
-import { relations } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 
 const resumes = sqliteTable("resumes", {
   id: text("id")
@@ -21,8 +21,12 @@ const resumes = sqliteTable("resumes", {
   userId: text("userId")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
-  createdAt: int("createdAt", { mode: "timestamp_ms" }).notNull(),
-  updatedAt: int("updatedAt", { mode: "timestamp_ms" }).notNull(),
+  createdAt: text("createdAt")
+    .notNull()
+    .default(sql`CURRENT_TIMESTAMP`),
+  updatedAt: text("updatedAt")
+    .notNull()
+    .default(sql`CURRENT_TIMESTAMP`),
 });
 
 export const resumesRelations = relations(resumes, ({ many }) => ({

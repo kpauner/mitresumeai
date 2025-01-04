@@ -1,6 +1,6 @@
-import { env } from "@/lib/env";
+import { env } from "@/env";
 import { db } from ".";
-import * as schema from "@/db/schema";
+import * as schema from "@/lib/db/schema";
 import * as seeds from "./seeds";
 
 if (!env.DB_SEEDING) {
@@ -13,44 +13,14 @@ if (!env.DB_SEEDING) {
 // }
 
 async function seedDatabase() {
-  for (const table of [
-    schema.locationMoves,
-    schema.characterMoves,
-    schema.characterItems,
-    schema.characterImprovements,
-    schema.characters,
-    schema.locations,
-    schema.items,
-    schema.tags,
-    schema.taggable,
-    schema.npcs,
-    schema.npcMoves,
-    schema.npcPowers,
-    schema.powers,
-    schema.moves,
-    schema.mysteries,
-  ]) {
-    // if (table === schema.moves) {
-    //   console.log("moves", table.name);
+  for (const table of [schema.users, schema.resumes]) {
+    // if (table === schema.users) {
+    //   console.log("users", table.name);
     // }
     await db.delete(table);
   }
 
-  await seeds.moves(db);
-  await seeds.powers(db);
-  await seeds.npcs(db);
-  await seeds.npcMoves(db);
-  await seeds.npcPowers(db);
-  await seeds.characters(db);
-  await seeds.characterMoves(db);
-  await seeds.characterImprovements(db);
-  await seeds.items(db);
-  await seeds.characterItems(db);
-  await seeds.tags(db);
-  await seeds.taggable(db);
-  await seeds.locations(db);
-  await seeds.locationMoves(db);
-  await seeds.mysteries(db);
+  await seeds.resumes(db);
 }
 
 seedDatabase()
