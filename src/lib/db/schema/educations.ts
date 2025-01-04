@@ -1,14 +1,14 @@
-import { sqliteTable, text, int } from "drizzle-orm/sqlite-core";
+import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { resumes } from ".";
 import { relations, sql } from "drizzle-orm";
 
-const experiences = sqliteTable("experiences", {
+const educations = sqliteTable("educations", {
   id: int().primaryKey({ autoIncrement: true }),
-  position: text("position").notNull(),
-  company: text("company").notNull(),
+  degree: text("degree").notNull(),
+  school: text("school").notNull(),
+  description: text("description"),
   startDate: text("startDate").notNull(),
   endDate: text("endDate"),
-  description: text("description").notNull(),
   createdAt: text("createdAt")
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),
@@ -17,11 +17,11 @@ const experiences = sqliteTable("experiences", {
     .default(sql`CURRENT_TIMESTAMP`),
 });
 
-export const experiencesRelations = relations(experiences, ({ one }) => ({
+export const educationsRelations = relations(educations, ({ one }) => ({
   resume: one(resumes, {
-    fields: [experiences.id],
+    fields: [educations.id],
     references: [resumes.id],
   }),
 }));
 
-export default experiences;
+export default educations;
