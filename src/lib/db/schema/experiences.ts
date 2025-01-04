@@ -6,9 +6,9 @@ const experiences = sqliteTable("experiences", {
   id: int().primaryKey({ autoIncrement: true }),
   position: text("position").notNull(),
   company: text("company").notNull(),
+  description: text("description").notNull(),
   startDate: text("startDate").notNull(),
   endDate: text("endDate"),
-  description: text("description").notNull(),
   createdAt: text("createdAt")
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),

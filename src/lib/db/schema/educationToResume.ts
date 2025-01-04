@@ -1,10 +1,11 @@
 import { int, sqliteTable } from "drizzle-orm/sqlite-core";
-import { experiences, resumes } from ".";
+import { experiences, experienceToResume, resumes } from ".";
 import { relations } from "drizzle-orm";
+import educations from "./educations";
 
-const experienceToResume = sqliteTable("experience_to_resume", {
+const educationToResume = sqliteTable("education_to_resume", {
   id: int("id").primaryKey({ autoIncrement: true }),
-  experienceId: int("experience_id")
+  educationId: int("education_id")
     .notNull()
     .references(() => experiences.id, { onDelete: "cascade" }),
   resumeId: int("resume_id")
@@ -12,15 +13,15 @@ const experienceToResume = sqliteTable("experience_to_resume", {
     .references(() => resumes.id),
 });
 
-export const experienceToResumeRelations = relations(
-  experienceToResume,
+export const educationToResumeRelations = relations(
+  educationToResume,
   ({ one }) => ({
-    experience: one(experiences, {
-      fields: [experienceToResume.experienceId],
-      references: [experiences.id],
+    education: one(educations, {
+      fields: [educationToResume.educationId],
+      references: [educations.id],
     }),
     resume: one(resumes, {
-      fields: [experienceToResume.resumeId],
+      fields: [educationToResume.resumeId],
       references: [resumes.id],
     }),
   }),
