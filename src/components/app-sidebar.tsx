@@ -41,7 +41,7 @@ const data = {
     },
     {
       title: "CV",
-      url: "#",
+      url: "/dashboard/resumes",
       icon: Send,
     },
   ],
