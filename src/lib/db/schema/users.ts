@@ -8,6 +8,10 @@ export const users = sqliteTable("user", {
     .primaryKey()
     .$defaultFn(() => nanoid()),
   name: text("name"),
+  lastName: text("lastName"),
+  city: text("city"),
+  country: text("country"),
+  phoneNumber: text("phoneNumber"),
   email: text("email").unique(),
   emailVerified: int("emailVerified", { mode: "timestamp_ms" }),
   image: text("image"),

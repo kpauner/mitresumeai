@@ -11,13 +11,7 @@ const resumes = sqliteTable("resumes", {
   description: text("description").default(""),
   imageUrl: text("imageUrl").default(""),
   hexColor: text("hexColor").notNull().default("#000000"),
-  firstName: text("firstName").notNull(),
-  lastName: text("lastName").notNull(),
-  jobTitle: text("jobTitle").notNull(),
-  city: text("city").notNull(),
-  country: text("country").notNull(),
-  phoneNumber: text("phoneNumber").notNull(),
-  email: text("email").notNull(),
+  jobTitle: text("jobTitle"),
   userId: text("userId")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
