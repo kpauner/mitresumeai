@@ -9,7 +9,7 @@ export type SelectResumes = z.infer<typeof SelectResumesSchema>;
 export type InsertResumes = z.infer<typeof InsertResumesSchema>;
 
 export const InfoSchema = z.object({
-  firstName: z.string(),
+  name: z.string(),
   lastName: z.string(),
   jobTitle: z.string(),
   city: z.string(),
